@@ -1,0 +1,234 @@
+---
+title: "Resumen 8"
+author: "Gonzalo Balladares - 2262595J"
+date: "`r format(Sys.Date())`"
+output:
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: false
+documentclass: extarticle
+classoption:
+  - 8pt
+geometry: "left=1.0cm,right=1.0cm,top=0.8cm,bottom=1.0cm"   
+fontsize: 6pt
+mainfont: "Latin Modern Roman"
+monofont: "Latin Modern Mono"
+colorlinks: true
+links-as-notes: true
+linkcolor: black
+header-includes:
+  - \usepackage{microtype}
+  - \usepackage{titlesec}
+  - \usepackage{enumitem}
+  - \usepackage{setspace}
+  - \usepackage{float}
+  - \setstretch{0.97}
+  - \setlength{\parindent}{0pt}
+  - \setlength{\parskip}{0.15em}
+  - \titlespacing\section{0pt}{0.5ex}{0.25ex}
+  - \titlespacing\subsection{0pt}{0.4ex}{0.2ex}
+  - \titlespacing\subsubsection{0pt}{0.3ex}{0.15ex}
+  - \setlist{nosep,leftmargin=*,itemsep=0.1em,topsep=0.1em,partopsep=0em}
+  - \AtBeginDocument{\abovedisplayskip=3pt plus 1pt minus 1pt \belowdisplayskip=3pt plus 1pt minus 1pt}
+  - \clubpenalty=10000 \widowpenalty=10000
+  # Compactar el header/título de forma moderada
+  - \usepackage{titling}
+  - \setlength{\droptitle}{-1.5em}
+  - \pretitle{\begin{center}\large\bfseries}
+  - \posttitle{\end{center}\vspace{0.2em}}
+  - \preauthor{\begin{center}\normalsize}
+  - \postauthor{\end{center}\vspace{0.1em}}
+  - \predate{\begin{center}\small}
+  - \postdate{\end{center}\vspace{0.5em}}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE, message = FALSE, warning = FALSE,
+  fig.align = "center", fig.width = 4.2, fig.height = 2.6,
+  fig.pos = "H", out.width = "100%", dev = "pdf"
+)
+```
+
+### Web sockets
+```javascript
+const Socket = require('koa-websocket');
+const app = Socket(new Koa());
+const wsRouter = new Router();
+wsRouter.all('/ws', (ctx) => {
+  ctx.websocket.on('message', (message) => {
+    ctx.websocket.send(`Server received: ${message}`);
+  });
+  ctx.websocket.on('close', () => {
+    console.log('WebSocket connection closed');
+})
+});
+```
+
+### Cliente
+##### HTML DOM
+
+Document Object Model
+Es una interfaz que permite a los lenguajes de programación acceder y actualizar el contenido, la estructura y el estilo de un documento HTML. Está organizado como un árbol de objetos, donde cada nodo representa un elemento del documento (document, html element (body, head), element).
+
+##### CSSOM
+CSS Object Model
+
+Mapa de todos los selectore y propiedades relevantes para cada selector definido en CSS.
+
+En conjunto con el DOM, forman el Render Tree (el "dibujo" de la página web).
+
+```html
+<!DOCTYPE html>
+  <head>
+    <title>Titulo</title>
+  </head>
+  <body>
+    <h1>Hola Mundo</h1>
+    <p>Este es un párrafo.</p>
+  </body>
+</html>
+```
+```css
+/* selector de tipo */
+p {
+  color: blue;
+}
+/* selector de clase */
+.clase {
+  font-size: 14px;
+}
+/* selector de ID */
+#Id {
+  margin: 10px;
+}
+/* selector de atributo */
+input[type="text"] {
+  border: 1px solid black;
+}
+/* selector descendiente */
+div p {
+  line-height: 1.5;
+}
+```
+Modelo de encajonamiento:
+- Margin
+  - Border
+    - Padding
+      - Content (Width, Height)
+
+##### Event listeners
+Todo lo que está escuchando las interacciones con el usuario (clicks, movimientos del mouse, teclas, etc.)
+```javascript
+elemento.addEventListener('click', function() {
+  // codigo a ejecutar cuando se hace click
+})
+```
+- click
+- mouseover
+- mouseout
+- keydown
+- keyup
+- submit (cuando se envía un formulario)
+
+### REACT
+Biblioteca de JS para construir UIs
+
+El REACT DOM se encarga de actualizar el DOM sólo cuando el estado de un componente cambia, se actualiza sólo la parte del DOM que cambió, en vez de actualizar todo (Virtual DOM).
+
+1. Initialization: se crea el componente.
+2. Mounting: se inserta el componente en el DOM.
+3. Updating: el componente se actualiza cuando cambian sus props o estado.
+4. Unmounting: el componente se elimina del DOM.
+
+```javascript
+// elemtent.jsx
+import ReactDOM from 'react-dom';
+
+function Elementos() {
+  const [elementos, setElementos] = useState([]);
+
+  function armar(elemento) {
+    return (
+      <div className="mi-clase"> {/* className, no class, no es HTML */}
+        <h2>{elemento.titulo}</h2> {/* Todo lo que esta entre {} se evalua como JS */}
+        <p>{elemento.descripcion}</p>
+      </div>
+    );
+  }
+}
+```
+
+### Hooks
+Son funciones que permiten a los componentes de React para gestionar el estado y efectos secundarios
+- useState: permite añadir estado a un componente funcional, puede servir para manejar dator que cambian con el tiempo.
+- useEffect: permite gestionar efectos secundarios, renderizar algo después de que se cumpla una condición.
+```javascript  
+import React, { useState, useEffect } from 'react';
+function Contador() {
+  const [state, setState] = useState(0);
+  useState(() => {
+    // codigo de init
+  });
+  useEffect(() => {
+  document.title = `Has hecho click ${state} veces`;
+  } [state]);
+}
+```
+### VueJS
+Framework de JS para construir UIs, se sentra en la idea de Single Page Application (SPA, es una única página que cambia su contenido de forma dinámica con cambios desde el servidor, sin necesitar refrescar la página por completo). Funciona con template (html con esteroides) y scripts (código de JS).
+```javascript
+<template>
+  <div>
+    <input
+      :value="text"
+      @input="event => text = event.target.value"
+    />
+    <p>Message is: {{ message }}</p> {/* las vars de JS van entre {{}} */}
+  </div>
+</template>
+<script>
+  {/* codigo de JS */}
+</script>
+<style>
+  {/* codigo de CSS */}
+</style>
+```
+Estructura:
+```text
+Name:Argument.Modifiers=Value
+```
+Names:
+- v-bind: vincula atributos de HTML a datos de Vue. (No se suele usar v-bind, se prefiere usar `:`)
+- v-model: crea un enlace bidireccional entre datos y elementos de formulario.
+- v-on: escucha eventos y ejecuta métodos.
+- v-if: renderiza condicionalmente elementos.
+- v-for: renderiza listas basadas en datos.
+- v-show: muestra u oculta elementos basados en una condición.
+
+Arguments:
+- event: tipo de evento (click, input, submit, etc). (No se suelen usar eventos como v-on:event, se prefiere usar `@event`).
+- attribute: atributo HTML (href, src, class, style, etc).
+- key: clave única para listas renderizadas (usado con v-for).
+- model: propiedad vinculada en un componente (usado con v-model).
+
+Modifiers:
+- .prevent: previene el comportamiento por defecto del evento.
+- .stop: detiene la propagación del evento.
+- .capture: usa la fase de captura del evento.
+- .self: el manejador solo se activa si el evento se origina en el elemento
+- .once: el manejador se activa solo una vez.
+
+Value:
+- Puede ser una expresión JS, una variable, o el nombre de un método definido en la instancia de Vue.
+
+\* El browser va a hacer el default, más lo que uno le pide. El default puede generar sobreuso de recursos y brechas de seguridad.
+Prevent default:
+```JS
+event.preventDefault();
+```
+
+\* El propagation es cuando un evento se "propaga" desde el elemento (div) hijo hasta los padres en el DOM. Detener la propagación evita que los manejadores de eventos en elementos padres se activen cuando un evento ocurre en un elemento hijo.
+```JS
+event.stopPropagation();
+```

@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Taller 6}
+\author{Gonzalo Balladares}
+\date{12 de Marzo de 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Pregunta 1}
+
+\begin{enumerate}
+    \item \textbf{Serial} S no es serial, ya que considerando las transacciones no se ejecutan de forma aislada, se comienza a ejecutar la T2 sin haber terminado la T1, con lo que la schedule no es serial.
+    \item \textbf{conflict-serializable} No es conflict serializable por el W1(a) y el W2(a).
+    \item \textbf{serializable} No se puede determinar al no saber cuáles son las operaciones realizadas en W(a)
+\end{enumerate}
+
+\section{Pregunta 2}
+Si es conflict serializable, a continuación se indican las permutaciones para serializar la schedule:
+\begin{enumerate}
+    \item (R1(X), W1(X)), (W3(Y), W3(Z))
+    \item R2(Z), (R1(Y), W1(Y))
+\end{enumerate}
+
+Con estas permutaciones se ejecuta T3 en su totalidad antes de ejecutarse T1, quedando T3 hacia el final, sin hbaer ningún conflicto.
+Nótese que T3 corresponde a la columna derecha de la tabla del enunciado, que aparece como T2 junto con la columna central.
+
+\section{Pregunta 3}
+El schedule no es conflict-serializable. Se podría hacer la permutación de [(R1(X), W1(X)), (W3(Y), W3(Z))], con lo que las transacciones T1 y T3 se ejecutan de forma aislada, pero últimas 2 operaciones -pertenecientes a T2-, se permutar de forma tal que T2 también se ejecute de forma aislada, pues (R1(X), W1(X)) tiene conflicto con (R2(X), W2(X)), con lo que la schedule no es conflict-serializable.
+
+\section{Ejemplo}
+
+\section{Ejemplo de Schedule Conflict-Serializable}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{T1}       & \textbf{T2}       & \textbf{T3}       \\ \hline
+R1(X)             &                   &                   \\ \hline
+W1(X)             & R2(X)             &                   \\ \hline
+                  & W2(Y)             &                   \\ \hline
+                  &                   & R3(Y)             \\ \hline
+                  &                   & W3(Z)             \\ \hline
+R1(Z)             &                   &                   \\ \hline
+W1(Z)             &                   &                   \\ \hline
+\end{tabular}
+\caption{Schedule con transacciones T1, T2 y T3.}
+\label{tab:conflict_serializable_example}
+\end{table}
+
+\section{Ejemplo de Schedule Serializable pero No Conflict-Serializable}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{T1}       & \textbf{T2}       & \textbf{T3}       \\ \hline
+R1(X)             &                   &                   \\ \hline
+                  & R2(X)             &                   \\ \hline
+W1(X)             &                   &                   \\ \hline
+                  &                   & W3(X)             \\ \hline
+                  & W2(Y)             &                   \\ \hline
+                  &                   & R3(Y)             \\ \hline
+\end{tabular}
+\caption{Schedule con transacciones T1, T2 y T3.}
+\label{tab:serializable_not_conflict_serializable}
+\end{table}
+
+\subsection{Conflictos en el Schedule}
+En este schedule, no se puede determinar un orden serial equivalente utilizando únicamente conflictos, ya que:
+\begin{itemize}
+    \item \textbf{Conflicto 1:} \texttt{W1(X)} (T1) y \texttt{R2(X)} (T2) tienen un conflicto de \textbf{lectura-escritura}.
+    \item \textbf{Conflicto 2:} \texttt{W3(X)} (T3) y \texttt{W1(X)} (T1) tienen un conflicto de \textbf{escritura-escritura}.
+    \item \textbf{Conflicto 3:} \texttt{W2(Y)} (T2) y \texttt{R3(Y)} (T3) tienen un conflicto de \textbf{escritura-lectura}.
+\end{itemize}
+
+\subsection{Por qué no es Conflict-Serializable}
+El grafo de precedencia (precedence graph) para este schedule tiene un ciclo:
+\[
+T1 \to T2 \to T3 \to T1
+\]
+Esto indica que no es conflict-serializable, ya que no se puede reordenar el schedule para eliminar los conflictos.
+
+\subsection{Por qué es Serializable}
+Aunque no es conflict-serializable, este schedule es \textbf{serializable} porque produce el mismo resultado que el siguiente orden serial:
+\[
+T1 \to T3 \to T2
+\]
+
+\subsection{Explicación de la Serialización}
+\begin{itemize}
+    \item Primero, T1 ejecuta sus operaciones (\texttt{R1(X)}, \texttt{W1(X)}).
+    \item Luego, T3 ejecuta sus operaciones (\texttt{W3(X)}, \texttt{R3(Y)}).
+    \item Finalmente, T2 ejecuta sus operaciones (\texttt{R2(X)}, \texttt{W2(Y)}).
+\end{itemize}
+
+Este orden serial produce el mismo resultado final que el schedule original, por lo que es serializable.
+\end{document}

@@ -1,0 +1,23 @@
+El módulo readline es un módulo de Node.js que permite leer las entradas desde la consola.
+Sirve para poder interactuar conel programa cuando se ejecuta el programa con Node.js (Y no desde el browser).
+
+Tiene una clase llamada InterfaceConstructor, que gracias a su método createInterface() permite al usuario interactuar con el programa desde la consola.
+
+Un ejemplo de uso puede ser:
+
+// saludar.js
+const readline = require("readline");
+
+const io = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+function saluda(nombre) {
+    io.question("Ingrese su nombre:", (nombre) => {
+        console.log("Saludos", nombre);
+        io.close();
+    })
+}
+
+saluda();

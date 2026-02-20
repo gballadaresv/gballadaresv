@@ -1,0 +1,239 @@
+% Plantilla para documentos LaTeX para enunciados
+% Por Pedro Pablo Aste Kompen - ppaste@uc.cl
+% Licencia Creative Commons BY-NC-SA 3.0
+% http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+\documentclass[12pt]{article}
+
+% Margen de 1 pulgada por lado
+\usepackage{fullpage}
+% Incluye gráficas
+\usepackage{graphicx}
+% Packages para matemáticas, por la American Mathematical Society
+\usepackage{amssymb}
+\usepackage{amsmath}
+% Desactivar hyphenation
+\usepackage[none]{hyphenat}
+% Saltar entre párrafos - sin sangrías
+\usepackage{parskip}
+% Español y UTF-8
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+% Links en el documento
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+% Enumeracion con letras
+\usepackage{enumitem}
+\setlength{\headheight}{15.2pt}
+\setlength{\headsep}{5pt}
+\pagestyle{fancy}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+
+% Cambiar por nombre completo + número de alumno
+\newcommand{\alumno}{Gonzalo Balladares - 2262595J}
+\rhead{Tarea 4 - \alumno}
+
+\begin{document}
+\thispagestyle{empty}
+% Membrete
+% PUC-ING-DCC-IIC1103
+\begin{minipage}{2.3cm}
+\includegraphics[width=2cm]{img/logo.pdf}
+\vspace{0.5cm} % Altura de la corona del logo, así el texto queda alineado verticalmente con el círculo del logo.
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textsc{\raggedright \footnotesize
+Pontificia Universidad Católica de Chile \\
+Departamento de Ciencia de la Computación \\
+IIC1253 - Matemáticas Discretas \\}
+\end{minipage}
+
+
+% Titulo
+\begin{center}
+\vspace{0.5cm}
+{\huge\bf Tarea 4}\\
+\vspace{0.2cm}
+\today\\
+\vspace{0.2cm}
+\footnotesize{2º semestre 2024 - Profesores P. Bahamondes - D. Bustamante - M. Romero}\\
+\vspace{0.2cm}
+\footnotesize{\alumno}
+\rule{\textwidth}{0.05mm}
+\end{center}
+
+
+\section*{Pregunta 1}
+
+\subsection*{(a)}
+
+\begin{enumerate}
+    
+    \item $(A \backslash B) \backslash C \subseteq  A \backslash (B \backslash C)$\\
+    Sea $x \in (A \backslash B) \backslash C$ tal que $x \in A \backslash (B \backslash C)$.\\
+    
+    Por definición de diferencia de conjuntos, se tiene que \\
+    $A \backslash B = \{x | x \in A : x \notin B\}$\\
+    $(A \backslash B) \backslash C = \{x | x \in A \backslash B \wedge  x \notin C\}$\\
+    
+    Por lo tanto, si $x \in (A \backslash B) \backslash C$, entonces $x \in A$ y $x \notin B$ y $x \notin C$.\\
+    Por otra parte,\\
+    
+    $B \backslash C = \{x | x \in B \wedge x \notin C\}$\\
+    $A \backslash (B \backslash C) = \{x | x \in A \wedge x \notin (B \backslash C)\}$\\    
+    
+    Lo cual implica que si $x \in A \backslash (B \backslash C)$, entonces $x \in A \wedge x \notin (B \backslash C)$.\\
+    De lo anterior, se desprenden múltiples casos:
+    \begin{itemize}
+        \item $x \in B$:\\
+        Por deifnición de diferencia de conjuntos, tenemos que si $x \in B \rightarrow x \in C$,\\
+        con lo cual $x \in A \wedge x \in B \wedge x \in C$.
+
+        \item $x \notin B \wedge x \in C$:\\
+        Se tiene que $x \in A, x \notin B, x \in C$.
+
+        \item $x \notin B \wedge x \notin C$:\\
+        Se tiene que $x \in A, x \notin B, x \notin C$.
+
+    \end{itemize}
+
+    En todos los casos, se tiene que $x \in (A \backslash B) \backslash C \subseteq  A \backslash (B \backslash C)$, 
+    por lo tanto, la afirmación es verdadera.
+
+
+
+    \item $A \backslash (B \backslash C) \subseteq (A \backslash B) \backslash C$\\
+    La afirmación es falsa, a modo de contrajemplo, consideraremos los siguientes conjuntos:
+    \begin{itemize}
+        \item $A = \{x, y, \{x, y\}\}$
+        \item $B = \{x\}$
+        \item $C = \{x, y\}$
+    \end{itemize}
+    De lo anterior, se tiene que:\\
+    
+    $A \backslash B = \{y, \{x, y\}\}$\\
+    $(A \backslash B) \backslash C = \{y, \{x, y\}\}$\\
+    
+    Por otra parte:\\
+    $B \backslash C = \varnothing$\\
+    $A \backslash (B \backslash C) = \{x, y, \{x, y\}\}$\\
+    
+    Luego, es claro ver que $(A \backslash B) \backslash C \nsubseteq  A \backslash (B \backslash C)$, 
+    por lo que la afirmación es falsa.
+    
+\end{enumerate}
+
+\subsection*{(b)}
+
+\begin{enumerate}
+
+    \item Sea $R$ un preorden sobre un conjunto $A$.\\
+    PD: $R \cap  R^{-1}$ es relación de equivalencia sobre $A$.\\
+    
+    Por definición de $R$, tenemos que $R$ es refleja y transitiva, con lo que $R^{-1}$
+    también lo es. En particular su intersección también lo será, por lo que resta demostrar que es simétrica.\\
+
+    Sea el par $(a, b) \in R \cap  R^{-1}$.
+    En particular $(a, b \in R)$ y $(b, a) \in R^{-1}$, además como $(a, b) \in R^{-1}$, se tiene que $(b, a) \in R$.
+    Con lo anterior, es claro ver que $(a, b) \in R \cap R^{-1}$.
+
+    Dado que $R \cap R^{-1}$ es refleja, transitiva y simétrica, se tiene que es relación de equivalencia sobre $A$.
+    
+    \item Se define $S$ como $A / R \cap R^{-1}$, es decir,\\
+    $S = \{[x]_{R \cap R^{-1}} | x \in A\}$\\
+    Donde $[x]_{R \cap R^{-1}} = \{y \in A| (x, y) \in R \cap R^{-1}\}$\\
+
+    Para demostrar que $A$ es un orden parcial, debemos demostrar que es refleja, antisimétrica y transitiva.\\
+    Tomaremos como hipótesis que \\
+    $(C, D) \in S \Longleftrightarrow \exists c \in C \wedge \exists d \in D : (c, d) \in R$.
+
+    \begin{itemize}
+        \item Refleja:\\
+        Sea $c \in C$, se tiene que $(c, c) \in R \cap R^{-1}$, por lo que $(C, C) \in S$,
+        con lo que $S$ es refleja.
+
+        \item Antisimétrica:\\
+        Sean los pares $(C, D), (D, C) \in S$, esto implica por hipótesis que $\exists c \in C, \exists d \in D$ tales que
+        $(c, d) \in R$ y $(d, c) \in R$, lo anterior implica que $(d, c) \in R^{-1}$ y $(c, d) \in R^{-1}$,
+        con lo cual, y como $R \cap R^{-1}$ es simétrica, se obtiene que $(c, d) \in R \cap R^{-1}$ y $(d, c) \in R \cap R^{-1}$,
+        con lo que $(c, d)$ y $(d, c)$ pertenecen a la misma clase de equivalencia, de lo que se concluye que $C = D$,
+        con lo que se demuestra la antisimetría de $S$.
+
+        \item Transitiva:\\
+        Sean los pares $(C, D), (D, E) \in S$, queremos demostrar que $(C, E) \in S$.
+        Por hipótesis tenemos que $\exists c \in C, \exists d \in D, \exists e \in E$ tales que $(c, d) \in R$ y $(d, e) \in R$.
+        Dado que $R$ es por definición transitiva, se tiene que $(c, e) \in R$, con lo cual, nuevamente por hipótesis,
+        $(C, E) \in S$, con lo que se muestra la transitividad de $S$.
+    \end{itemize}
+
+    Finalmente, dado que $S$ es refleja, antisimétrica y transitiva, se tiene que es un orden parcial.
+
+\end{enumerate}
+
+\newpage
+
+\section*{Pregunta 2}
+
+\subsection*{(a)}
+
+\begin{itemize}
+    \item $\rightarrow$\\
+    Sea $(A, \preceq)$ un orden total, sea $S \subseteq A$, $S \neq \varnothing$, y sea $x \in A$
+    elemento minimal de $S$.\\
+
+    PD: $x$ min de $S$.\\
+    Vamos a demostrar por contradicción, asumiremos que $x$ no es mínimo de $S$, lo cual implica que
+    $\exists y \in S : y \preceq x$, pues $x \in S$, lo cual es una contradicción, pues dado que $\preceq$ es 
+    un orden total sobre $A$, y que $x$ es elemento minimal, $\nexists y \in S : y \preceq x$.\\
+    Por lo tanto, se tiene que $x$ es mínimo de $S$.
+
+    \item $\leftarrow$\\
+    Ahora, sea $x$ min $S$.
+    Dado que $x$ es mínimo de $S$, sabemos que $x \in S$, y que $x$ es cota inferior de $S$.
+
+    Nuevamente, vamos a sumir que $x$ no es elemento minimal de $S$, lo cual implica que 
+    $\exists y \in S, y \neq x : y \preceq x$, lo cual contradice que $\forall y \in S, x \preceq y$.
+    Por lo tanto, se tiene que $x$ es elemento minimal de $S$.
+\end{itemize}
+
+\subsection*{(b)}
+
+\subsubsection*{(1)}
+\begin{itemize}
+    \item Refleja:\\
+    Queremos demostrar que $f \preceq f$.
+    Lo anterior implica por definición de la relación que $f(n) \leq f(n) \forall n \in \mathbb{N}$, lo cual es trivialmente verdadero.
+
+    \item Antisimétrica:\\
+    Sean $f, g \in \mathcal{F}$ tales que $f \preceq g$ y $g \preceq f$.
+    Lo anterior implica que $f(n) \leq g(n) \forall n \in \mathbb{N}$ y $g(n) \leq f(n) \forall n \in \mathbb{N}$,
+    lo cual es cierto si y solo si $f(n) = g(n) \forall n \in \mathbb{N}$, con lo que se tiene que $f = g$.
+
+    \item Transitiva:\\
+    Sean $f, g, h \in \mathcal{F}$ tales que $f \preceq g$ y $g \preceq h$.
+    Lo anterior implica que $f(n) \leq g(n) \forall n \in \mathbb{N}$ y $g(n) \leq h(n) \forall n \in \mathbb{N}$,
+    lo cual implica que $f(n) \leq h(n) \forall n \in \mathbb{N}$, con lo que se tiene que $f \preceq h$.
+\end{itemize}
+
+Finalmente, dado que $\preceq$ es refleja, antisimétrica y transitiva, se tiene que es un orden parcial.
+
+\subsubsection*{(2)}
+Dado que $\preceq$ es un orden parcial, queremos demostrrar que es conexa.
+Dado que $(\leq, \mathbb{N})$ es un orden total, se tiene que.
+
+\subsubsection*{(3)}
+Dado que $\preceq$ es un orden total, entonces necesariamente tiene un mínimo.
+% Fin del documento
+\end{document}

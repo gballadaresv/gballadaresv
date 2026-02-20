@@ -1,0 +1,27 @@
+Pregunta 1:
+1. Se debe leer todo el log, puesto que T2 se commiteó y T4 se abortó, pero T3 quedó abierta, entonces hay que revisar hasta antes del checkpoint.
+2. Respecto a la transacción T3, se deben cambiar los valores de "a" y "d", que quedaría con los valores de "10" y "22" respectivamente. Respecto a T4, al ser abortada la transacción, se debe cambiar "c" a un valor de 7.
+3. Las variables que no se cambian son "b", "e" y "f".
+
+Pregunta 2:
+1. Se debe revisar desde START CKPT.
+2. Se debe hacer cambio sólo a "d", que quedaría con un valor de 23.
+3. Todo el resto de las variables.
+4. Si no hubiera END CKPT, se debería hacer redo de todo el log.
+
+Pregunta 3:
+1. EL log de undo sería:
+<START T1>
+<T1, A, A-10>
+<T1, X, valor_antiguo_de_X>
+<T1, B, B+5>
+<T1 COMMIT>
+
+2. El log de redo sería:
+<START T1>
+<T1, A, A+10>
+<T1, X, X>
+<T1, B, B-5>
+<T1 COMMIT>
+
+3. En caso de falla, usando undo se hace undo de los cambios en A y X, obviando los cambios en B. En el caso de redo, no se hace anda, puesto que al no haber commits, se hace ABORT.

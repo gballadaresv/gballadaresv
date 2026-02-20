@@ -1,0 +1,199 @@
+% Plantilla para documentos LaTeX para enunciados
+% Por Pedro Pablo Aste Kompen - ppaste@uc.cl
+% Licencia Creative Commons BY-NC-SA 3.0
+% http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+\documentclass[12pt]{article}
+
+% Margen de 1 pulgada por lado
+\usepackage{fullpage}
+% Incluye gráficas
+\usepackage{graphicx}
+% Packages para matemáticas, por la American Mathematical Society
+\usepackage{amssymb}
+\usepackage{amsmath}
+% Desactivar hyphenation
+\usepackage[none]{hyphenat}
+% Saltar entre párrafos - sin sangrías
+\usepackage{parskip}
+% Español y UTF-8
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+% Links en el documento
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+% Enumeracion con letras
+\usepackage{enumitem}
+\setlength{\headheight}{15.2pt}
+\setlength{\headsep}{5pt}
+\pagestyle{fancy}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+
+% Cambiar por nombre completo + número de alumno
+\newcommand{\alumno}{Gonzalo Balladares - 2262595J}
+\rhead{Tarea 1 - \alumno}
+
+\begin{document}
+\thispagestyle{empty}
+% Membrete
+% PUC-ING-DCC-IIC1103
+\begin{minipage}{2.3cm}
+\includegraphics[width=2cm]{img/logo.pdf}
+\vspace{0.5cm} % Altura de la corona del logo, así el texto queda alineado verticalmente con el círculo del logo.
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textsc{\raggedright \footnotesize
+Pontificia Universidad Católica de Chile \\
+Departamento de Ciencia de la Computación \\
+IIC1253 - Matemáticas Discretas \\}
+\end{minipage}
+
+
+% Titulo
+\begin{center}
+\vspace{0.5cm}
+{\huge\bf Tarea 1}\\
+\vspace{0.2cm}
+\today\\
+\vspace{0.2cm}
+\footnotesize{2º semestre 2024 - Profesores P. Bahamondes - D. Bustamante - M. Romero}\\
+\vspace{0.2cm}
+\footnotesize{\alumno}
+\rule{\textwidth}{0.05mm}
+\end{center}
+
+
+\section*{Pregunta 1}
+
+\subsection*{(a)}
+
+Por demostrar que:
+\begin{equation}
+    \label{eq:1}
+    \sum_{i=0}^{n} 2^i = 2^{n+1} - 1
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{CB:}
+    Para $n=0$ se cumple que
+        \begin{equation*}
+            \sum_{i=0}^{0} 2^i = 2^0 = 1 = 2^{0+1} - 1
+        \end{equation*}
+
+    \item \textbf{HI:}
+    Supondremos que (\ref*{eq:1}) se cumple para un $n \in \N$
+
+    \item \textbf{TI:}
+    Queremos demostrar por inducción que (\ref*{eq:1}) se cumple también para $n + 1$
+
+    \begin{align*}
+        \sum_{i=0}^{n+1} 2^i
+        &= 2^{n+1} + \sum_{i=0}^{n} 2^i \\
+        &\stackrel{HI}{=} 2^{n+1} + 2^{n+1} - 1 \\
+        &= 2(2^{n+1}) - 1 \\
+        &= 2^{n+2} - 1 \\
+        &= 2^{(n+1)+1} - 1
+    \end{align*}
+\end{itemize}
+
+Con lo anterior podemos concluir por inducción simple que la propiedad (\ref*{eq:1}) se cumple para todos los números naturales.
+
+
+
+\newpage
+\subsection*{(b)}
+Por demostrar que:
+\begin{equation}
+    \label{eq:2}
+    (m + 1)^n > mn
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{CB:}
+    Notamos que para $n = 1$ se cumple que
+    \begin{equation*}
+        (m + 1)^1 > m \cdot 1
+    \end{equation*}
+
+    \item \textbf{HI:}
+    Supondremos que (\ref*{eq:2}) se cumple para  un $n \geq 1$ cualquiera.
+
+    \item \textbf{TI:}
+    Queremos demostrar por inducción que (\ref*{eq:2}) se cumple también para $n+1$
+    \begin{align*}
+        (m + 1)^{n+1}
+        &= (m + 1)^n \cdot (m + 1)
+    \end{align*}
+    Nótese que el término $(m + 1)^{n+1}$ puede acotarse inferiormente según la hipótesis inductiva,
+    resultando en lo siguiente:
+    \begin{align*}
+        (m + 1)^n \cdot (m + 1) > mn(m + 1) = m^2n + mn
+    \end{align*}
+    Finalmente, podemos utilizar la siguiente relación para acotar nuevamente 
+    la expresión $m^2n + mn$.
+    \begin{align*}
+        m^2n + mn \geq mn + m = m(n+1)
+    \end{align*}
+    Resumiendo, tenemos que:
+    \begin{align*}
+        (m + 1)^{n+1} > m(n+1)
+    \end{align*}
+    Se demostró entonces por inducción simple que la propiedad \ref*{eq:2} se cumple 
+    para todo número natural $m \geq 1$ 
+\end{itemize}
+
+
+\newpage
+\section*{Pregunta 2}
+Por demostrar que todo número natural $n \geq 0$ se puede escribir en base $b$ según:
+\begin{equation}
+    \label{eq:3}
+    n = \sum_{i=0}^{\ell-1} k_i \cdot b^i
+\end{equation}
+\begin{itemize}
+    \item \textbf{CB:}
+    Considerando el caso $n = 0$ se cumple que:
+    \begin{equation*}
+        0 = \sum_{i=0}^{1-1} k_i \cdot b^i = 0 \cdot b^0
+    \end{equation*}
+    Sea ahora $r$ un número natural de largo $\ell = 1$ tal que $r < b$:
+    \begin{equation*}
+        r = \sum_{i=0}^{1-1} k_i \cdot b = r \cdot b^0
+    \end{equation*}
+
+    \item \textbf{HI:}
+    Sea $j$ un número natural tal que $j \leq n$, supondremos que (\ref*{eq:3}) se cumple
+    para $j$.
+
+    \item \textbf{TI:}
+    Sabemos que un número $n$ en base $b$ puede ser escrito de la forma
+    $n = j \cdot b + r$. Con lo anterior, y utilizando la hipótesis de indicción, se obtiene que:
+    \begin{align*}
+        n+1 &= j \cdot b + r \\
+        &\stackrel{HI}{=} (\sum_{i=0}^{\ell-1} k_i \cdot b^i) \cdot b + r \\
+        &= \sum_{i=0}^{\ell-1} k_i \cdot b^{i+1} + r \\
+        &\stackrel{CB}{=} \sum_{i=0}^{\ell-1} k_i \cdot b^{i+1} + rb^0
+    \end{align*}
+    Si renombramos las variables de la sumatoria de forma conveniente, siendo cada $k_i$ denominada ahora
+    como $h_{i+1}$, y renombrando $r$ a $h_0$, se puede reescribir la expresión anterior como:
+    \begin{equation*}
+        n + 1 = \sum_{i=0}^{\ell-1} h_i \cdot b^{i+1}
+    \end{equation*}
+    Con lo anterior, se concluye que todo número natural $n \geq 0$ se puede representar
+    en base $b \geq 2$.
+\end{itemize}
+
+% Fin del documento
+\end{document}

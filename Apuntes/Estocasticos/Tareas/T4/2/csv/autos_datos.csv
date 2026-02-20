@@ -1,0 +1,26 @@
+id,entrada,salida,server,descripcion
+1,00:00:00,00:00:00,2,Auto inicio de medicion pvi S2 1
+2,00:00:22,00:09:36,2,Van negra
+3,00:00:00,00:00:44,1,Auto pvi S1 1
+4,00:01:56,00:18:55,3,Mazda gris
+5,00:00:00,00:02:16,2,Auto pvi S2 2
+6,00:00:00,00:03:00,1,Auto pvi S1 2
+7,00:03:00,00:13:18,1,Susuki gris
+8,00:05:55,00:17:16,2,Null
+9,00:00:00,00:06:35,2,Auto pvi S2 3
+10,00:06:35,00:11:31,2,Sedan blanco
+11,00:00:00,00:07:25,3,Auto pvi S3 1
+12,00:07:25,00:23:29,1,Chino rojo
+13,00:12:17,00:20:14,3,Kia gris
+14,00:13:54,00:24:19,2,Maxus blanca
+15,00:19:31,00:29:44,3,City negro
+16,00:20:30,00:31:22,2,Hyundai rojo
+17,00:20:54,00:44:10,1,Toyota rojo
+18,00:25:49,00:34:20,3,Susuki negro
+19,00:26:10,00:48:47,1,MG blanco
+20,00:31:51,00:42:36,3,Chev gris
+21,00:32:58,00:45:38,2,Minivan gris
+22,00:41:10,00:53:40,1,Camioncito
+23,00:44:23,00:54:11,2,Chev negro
+24,00:53:50,01:04:35,1,Chino blanco
+25,01:00:52,01:11:00,1,Dodge roja

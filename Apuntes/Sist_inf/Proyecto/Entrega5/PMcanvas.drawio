@@ -1,0 +1,64 @@
+<mxfile host="65bd71144e">
+    <diagram id="rmKfCzo25umMoCrS6ZFU" name="Page-1">
+        <mxGraphModel dx="2047" dy="537" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="17" value="&lt;font&gt;Procesos manuales en la gestión de pacientes generan inconsistencias en la información clínica junto con elevados tiempos de espera que generan una disminusión en la capacidad de atención de los voluntarios de la fundación&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="-280" y="40" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="&lt;ul&gt;&lt;li&gt;&lt;font&gt;Rebajar en un 25% los tiempos de atención de los pacientes apra el próximo trimestre.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font&gt;Aumentar en un 10% la cantidad de pacientes atendidos en dos meses.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font&gt;Disminuir en un 90% las inconsistencias en las fichas médicas en 10 semanas.&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-280" y="240" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Aumento en la capacidad de atenciones dentales.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Disminución de tiempos muertos de profesionales voluntarios.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Aumento en la consistencia de la información entre diferentes áreas de la fundación.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-280" y="440" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;font&gt;Implementación del ERP Odoo con módulos de CRM y WMS con integración de IAs para optimizar la asignación de pacientes a los voluntarios, automatizar la generación de reportes e integrar la información entre las distintas áreas de la fundación.&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="-80" y="40" width="200" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;ul&gt;&lt;li&gt;Compatibilidad con calendarios para agendar citas y actividades clínicas.&lt;/li&gt;&lt;li&gt;Integración con herramientas de comunicación para permitir notificaciones automáticas&lt;/li&gt;&lt;li&gt;Análisis avanzados sobre la satisfacción y eficiencia en las consultas dentales.&lt;/li&gt;&lt;li&gt;Integración de herramientas de IA para automatizar y optimizar la asignación de pacientes a especialistas.&lt;/li&gt;&lt;li&gt;Interfaz sencilla e intuitiva para rápida adopción por los profesionales voluntarios&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-80" y="280" width="200" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;ul&gt;&lt;li&gt;Pacientes de la fundación.&lt;/li&gt;&lt;li&gt;Especialistas voluntarios.&lt;/li&gt;&lt;li&gt;Gerencia de recursos humanos.&lt;/li&gt;&lt;li&gt;Gerencia de alianzas estratégicas.&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="40" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;ul&gt;&lt;li&gt;Gerente de proyecto.&lt;/li&gt;&lt;li&gt;Jefe de desarrollo.&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Desarrolladores.&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="240" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="&lt;ul&gt;&lt;li&gt;Especial atención a leyes de protección de datos sensibles.&lt;/li&gt;&lt;li&gt;Presupuesto de $80.000 USD&lt;/li&gt;&lt;li&gt;Plazo máximo de 1 año&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="440" width="400" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="&lt;ul&gt;&lt;li&gt;Voluntad de los especialistas por adoptar el sistema.&lt;/li&gt;&lt;li&gt;Apoyo del proyecto por parte de la administración.&lt;/li&gt;&lt;li&gt;Se cuenta con los recursos humanos y financieros necesarios para llevar a cabo el proyecto.&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="40" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Plan de proyecto.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Implementación del sistema ERP.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Testeo a baja escala.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Refinamiento de la plataforma.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Capacitación de voluntarios.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Implementación a gran escala.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Monitoreo y mejoramiento.&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="240" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;ul&gt;&lt;li&gt;Atrasos por incompatibilidad de sistemas existentes.&lt;/li&gt;&lt;li&gt;Atrasos en migración de datos.&lt;/li&gt;&lt;li&gt;Sobrecostos del proyecto.&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="40" width="200" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="&lt;span style=&quot;background-color: transparent;&quot;&gt;1. Documentación de procesos existentes y usuarios/personas claves: 1 mes.&lt;/span&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;2. Implementación de CRM en agendamiento de horas: 3 meses.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;3. Implementación de sistema WMS con reabastecimiento automático de insumos médicos: 2 meses.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;4. Automatización de generación de reportes médicos: 1 mes.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;5. Implementación de módulos de contabilidad y finanzas: 3 meses.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;6. Integración de encuestas de satisfacción: 1 mes.&lt;br&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="180" width="200" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="&lt;ul&gt;&lt;li&gt;$25.000 - 60.000 USD: implementación de sistema y entrenamiento de IA.&lt;/li&gt;&lt;li&gt;$300 USD/mes: mantenimiento de sistema.&lt;/li&gt;&lt;li&gt;$40.000 USD: consultorías.&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="480" width="200" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Por qué&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="1">
+                    <mxGeometry x="-280" y="10" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Qué&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6d0de;strokeColor=#996185;gradientColor=#d5739d;" vertex="1" parent="1">
+                    <mxGeometry x="-80" y="10" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Quién&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;gradientColor=#ea6b66;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="10" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Cómo&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;gradientColor=#ffd966;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="10" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Cuándo y cuánto&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="10" width="200" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

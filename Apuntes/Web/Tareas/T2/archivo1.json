@@ -1,0 +1,34 @@
+[
+    {
+        "autor": "Juan Pérez",
+        "titulo": "Introducción a la programación"
+    },
+    {
+        "autor": "María Gómez",
+        "titulo": "Estructuras de datos"
+    },
+    {
+        "autor": "Luis Martínez",
+        "titulo": "Algoritmos avanzados"
+    },
+    {
+        "autor": null,
+        "titulo": "Fisiología"
+    },
+    {
+        "autor": "Kaluga",
+        "titulo": ""
+    },
+    {
+        "autor": "Juan Pérez",
+        "titulo": "Introducción a la programación"
+    },
+    {
+        "autor": "Juan Pérez",
+        "titulo": "Introducción a la programación"
+    },
+    {
+        "autor": "Juan Pérez",
+        "titulo": "edd"
+    }
+]

@@ -1,0 +1,229 @@
+% Plantilla para documentos LaTeX para enunciados
+% Por Pedro Pablo Aste Kompen - ppaste@uc.cl
+% Licencia Creative Commons BY-NC-SA 3.0
+% http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+\documentclass[12pt]{article}
+
+% Margen de 1 pulgada por lado
+\usepackage{fullpage}
+% Incluye gráficas
+\usepackage{graphicx}
+% Packages para matemáticas, por la American Mathematical Society
+\usepackage{amssymb}
+\usepackage{amsmath}
+% Desactivar hyphenation
+\usepackage[none]{hyphenat}
+% Saltar entre párrafos - sin sangrías
+\usepackage{parskip}
+% Español y UTF-8
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+% Links en el documento
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+% Enumeracion con letras
+\usepackage{enumitem}
+\setlength{\headheight}{15.2pt}
+\setlength{\headsep}{5pt}
+\pagestyle{fancy}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+
+% Cambiar por nombre completo + número de alumno
+\newcommand{\alumno}{Gonzalo Balladares - 2262595J}
+\rhead{Tarea 3 - \alumno}
+
+\begin{document}
+\thispagestyle{empty}
+% Membrete
+% PUC-ING-DCC-IIC1103
+\begin{minipage}{2.3cm}
+\includegraphics[width=2cm]{img/logo.pdf}
+\vspace{0.5cm} % Altura de la corona del logo, así el texto queda alineado verticalmente con el círculo del logo.
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textsc{\raggedright \footnotesize
+Pontificia Universidad Católica de Chile \\
+Departamento de Ciencia de la Computación \\
+IIC1253 - Matemáticas Discretas \\}
+\end{minipage}
+
+
+% Titulo
+\begin{center}
+\vspace{0.5cm}
+{\huge\bf Tarea 3}\\
+\vspace{0.2cm}
+\today\\
+\vspace{0.2cm}
+\footnotesize{2º semestre 2024 - Profesores P. Bahamondes - D. Bustamante - M. Romero}\\
+\vspace{0.2cm}
+\footnotesize{\alumno}
+\rule{\textwidth}{0.05mm}
+\end{center}
+
+
+\section*{Pregunta 1}
+
+\subsection*{(a)}
+
+Sean $\varphi$ y $\psi$ dos fórmulas de la lógica proposicional. Se quiere demostrar que si $\varphi \rightarrow \psi$
+es una tautología, entonces $\Sigma \cup \{\varphi, \psi\}  \vDash \theta \Leftrightarrow \Sigma \cup \{\varphi\} \vDash \theta$.
+
+Para demostrar esto, se debe demostrar que si $\Sigma \cup \{\varphi, \psi\}  \vDash \theta$, entonces $\Sigma \cup \{\varphi\} \vDash \theta$ y viceversa.
+
+\begin{enumerate}
+    \item $\Sigma \cup \{\varphi, \psi\}  \vDash \theta \Rightarrow \Sigma \cup \{\varphi\} \vDash \theta$:
+
+    Sea $\Sigma \cup \{\varphi, \psi\} \vDash \theta$ hipótesis, se quiere demostrar que $\Sigma \cup \{\varphi\} \vDash \theta$.
+    Considere os una valuación $\sigma$ tal que $\sigma$ satisface a $\Sigma \cup \{\varphi\}$. Se quiere demostrar que $\sigma (\Sigma \cup \{\varphi, \psi\}) = 1$.
+    
+    Para que lo anterior sea cierto, debe cumplirse que $\sigma (\varphi) = 1$, y dado que $\varphi \rightarrow \psi$ es una tautología, se tiene que $\sigma (\psi) = 1$.
+    Dado que $\sigma(\Sigma \cup \{\varphi\}) = 1$ y $\sigma(\psi) = 1$, se tiene que $\sigma(\Sigma \cup \{\varphi, \psi\}) = 1$, y dado que por hipótesus 
+    $\Sigma \cup \{\varphi, \psi\} \vDash \theta$, se concluye que $\sigma(\theta) = 1$.
+    
+    Con lo anterior, se concluye que $\Sigma \cup \{\varphi, \psi\}  \vDash \theta \Rightarrow \Sigma \cup \{\varphi\} \vDash \theta$.
+
+
+
+    \item $\Sigma \cup \{\varphi, \psi\}  \vDash \theta \Leftarrow \Sigma \cup \{\varphi\} \vDash \theta$:
+    
+    Sea $\Sigma \cup \{\varphi\} \vDash \theta$ hipótesis, se quiere demostrar que $\Sigma \cup \{\varphi, \psi\}  \vDash \theta$.
+    Consideraremos una valuación $\sigma$ tal que $\sigma (\Sigma \cup \{\varphi, \psi\}) = 1$.
+    Lo anterior implica que $\sigma(\Sigma \cup \{\varphi\}) = 1$.
+    Luego, por hipótesis sabemos que $\Sigma \cup \{\varphi\} \vDash \theta$.
+    Con lo cual se obtiene que $\sigma(\theta) = 1$.
+
+    Finalmente se concluye que $\Sigma \cup \{\varphi\} \vDash \theta \Rightarrow \Sigma \cup \{\varphi, \psi\}  \vDash \theta$.
+\end{enumerate}
+
+Al ser ambas implicancias verdaderas, se concluye que dado $\varphi \rightarrow \psi$ tautología, entonces $\Sigma \cup \{\varphi, \psi\}  \vDash \theta \Leftrightarrow \Sigma \cup \{\varphi\} \vDash \theta$.
+
+\subsection*{(b)}
+
+Para demostrar $\Sigma \cup \Sigma' \vDash \varphi$, por equivalencia de demostrará que 
+$\Sigma \cup \Sigma' \cup  \{\neg \varphi\} \vDash \square$.
+
+Se tiene de hipótesis que $\Sigma \vDash \varphi$, lo cual es equivalente a $\Sigma \cup \{\neg \varphi\} \vDash \square$.
+
+Luego, se considera una valuación $\sigma$ tal que:
+\begin{center}
+    $\sigma(\Sigma) = 1, \qquad \sigma(\varphi) = 1, \qquad \sigma(\neg \varphi) = 0$
+\end{center}
+
+Luego, se podría evaluar $\sigma(\Sigma')$, pero esto es redundante, ya que dado que $\sigma(\neg \varphi) = 0$ y $\sigma(\Sigma) = 1$,
+se tiene que $\Sigma \cup \Sigma' \cup \{\neg \varphi\}$ es inconsitente, con lo cual queda demostrado que $\Sigma \cup \Sigma' \vDash \varphi$.
+
+\newpage
+\subsection*{(c)}
+
+Para demostrar lo pedido, se puede demostrar por equivalencia que $\{\varphi_f, \varphi_i\} \cup \{\neg \varphi_s\} \vDash \square$
+
+Primero, comenzamos escribiendo los conjuntos de fórmulas en CNF:
+
+\begin{align*}
+    \varphi_f
+    &= (p_{1,a} \lor p_{1,b}) \land (p_{1,a} \rightarrow \neg p_{1,b}) \land (p_{1,b} \rightarrow \neg p_{1,a})
+    \land (p_{2,a} \lor p_{2,b}) \land (p_{2,a} \rightarrow \neg p_{2,b}) \land (p_{2,b} \rightarrow \neg p_{2,a}) \\
+    &= (p_{1,a} \lor p_{1,b}) \land (\neg p_{1,a} \lor  \neg p_{1,b}) \land (\neg p_{1,a} \lor  \neg p_{1,b}) \land
+    (p_{2,a} \lor p_{2,b}) \land  (\neg p_{2,a} \lor \neg p_{2,b}) \land (\neg p_{2,a} \lor \neg p_{2,b}) \\
+    &= (p_{1,a} \lor p_{1,b}) \land (\neg p_{1,a} \lor \neg p_{1,b}) \land (p_{2,a} \lor p_{2,b}) \land (\neg p_{2,a} \lor \neg p_{2,b}) \\
+\end{align*}
+
+\begin{align*}
+    \varphi_i
+    &= (p_{1,a} \rightarrow \neg p_{2,a}) \land (p_{1,b} \rightarrow \neg p_{2,b}) \land (p_{2,a} \rightarrow \neg p_{1,a}) \land (p_{2,b} \rightarrow \neg p_{1,b}) \\
+    &= (\neg p_{1,a} \lor \neg p_{2,a}) \land (\neg p_{1,b} \lor \neg p_{2,b}) \land (\neg p_{2,a} \lor \neg p_{1,a}) \land (\neg p_{2,b} \lor \neg p_{1,b}) \\
+    &= (\neg p_{1,a} \lor \neg p_{2,a}) \land (\neg p_{1,b} \lor \neg p_{2,b})
+\end{align*}
+
+\begin{align*}
+    \neg \varphi_s
+    &= \neg ((p_{1,a} \lor p_{2,a}) \land (p_{1,b} \lor p_{2,b})) \\
+    &= \neg (p_{1,a} \lor p_{2,a}) \lor \neg (p_{1,b} \lor p_{2,b}) \\
+\end{align*}
+
+Luego, definimos un conjunto $\Sigma' = \{\varphi_f, \varphi_i\} \cup (\neg \varphi_s)$:
+
+\begin{align*}
+    \Sigma' = 
+    \{&(p_{1,a} \lor p_{1,b}), (\neg p_{1,a} \lor  \neg p_{1,b}), (p_{2,a} \lor p_{2,b}), (\neg p_{2,a} \lor \neg p_{2,b}), \\
+    &(\neg p_{1,a} \lor \neg p_{2,a}),  (\neg p_{1,b} \lor \neg p_{2,b}), \neg (p_{1,a} \lor p_{2,a}) \lor \neg (p_{1,b} \lor p_{2,b})\}
+\end{align*}
+
+Se quiere demostrar que $\Sigma' \vdash \square$.
+
+Aplicando resolución sobre $\Sigma'$, se obtiene:
+
+\begin{enumerate}[label=(\arabic*)]
+    \item $(p_{1,a} \lor p_{1,b}) \qquad\in \Sigma'$
+    \item $(\neg p_{1,a} \lor  \neg p_{1,b}) \quad \in \Sigma'$
+    \item $\square \qquad \qquad \qquad$ Resolución de (1) y (2)
+\end{enumerate}
+
+Con lo anterior, se concluye que $\Sigma' \vdash \square$, y por lo tanto $\{\varphi_f, \varphi_i\} \cup \{\neg \varphi_s\} \vDash \square$.
+
+Finalmente, se concluye que $\{\varphi_f, \varphi_i\} \vDash \varphi_s$.
+
+
+
+
+
+\newpage
+\section*{Pregunta 2}
+
+\begin{enumerate}[label=(\alph*)]
+    \item $\forall x \forall y (S(x, y) \rightarrow \neg (x = y))$.
+
+    Para todo usuario $x$ y para todo usuario $y$, si $x$ sigue a $y$, entonces $x$ es distinto de $y$, lo que asegura 
+    que nadie puede seguirse a sí mismo.
+
+    \item $\exists x \exists y \forall z (S(z, x) \lra S(z, y))$.
+    
+    Existen 2 usuarios $x$ e $y$ tales que todo usuario $z$ que siga a $x$ también sigue a $y$, y que todo usuario $z$ que siga a $y$
+    también sigue a $x$. Si un usuario no sigue a uno, necesariamente tampoco sigue al otro.
+
+    \item $\forall x \forall y ((S(x, y) \rightarrow \neg B(y, x)) \land B(x, y) \land \neg S(x, y))$
+    
+    Para todo par de usuario $x$ y $y$, si $x$ sigue a $y$, entonces nesecariamente $x$ no bloquea a $y$, a su vez si $x$ tiene 
+    bloqueado a $y$, entonces necesariamente no lo sigue. 
+    
+    Nótese que cuando $x$ no sigue a $y$, no necesariamente lo tiene bloquedo, análogamente, cuando $x$ no tiene bloqueado 
+    a $y$, puede seguirlo o no.
+
+    \item $\forall x \exists y \exists z (S(x, y) \land S(z, x))$
+    
+    La expresión nos garaniza que para todo usuario $x$, existen usuario $y$ y $z$, tales que $x$ sigue a $y$ y $z$ sigue a $x$,
+    lo que nos asegura que todo usuario tendrá al menos un seguidor y al menos un seguido.
+
+    Nótese que no se menciona que $y$ y $z$ sean distintos, por lo que un usuario $x$ podría seguir y ser seguido por el mismo usuario.
+
+    \item $\exists x ((Bot(x) \land \forall y (\neg B(y, x))) \land \forall z ((Bot(z) \land \forall w (\neg B(w, z))) \rightarrow z = x))$
+    
+    La fórmula anterior indica que existe un usuario $x$, tal que es un bot y que ningún usuario $y$ lo tiene bloqueado, además que todo bot $z$ 
+    que cumpla con lo anterior, es igual al bot $x$, asegurando unicidad.
+
+    \item $\forall x (\neg Bot(x) \rightarrow \exists a \exists b \exists c
+    (S(x, a) \land S(x, b) \land S(x, c) \land \neg (a = b) \land \neg (a = c) \land \neg (b = c)))$
+
+    La expresión anterior indica que para todo usuario que no es un bot, existen al menos 3 usuarios $a$, $b$ y $c$ distintos entre sí,
+    tales que los 3 siguen a $x$.
+
+    Lo anterior no inluye expresiones de unicidad, por lo que se asegura la existencia de 3 seguidores, pero no limita la posibilidad de que hayan más.
+\end{enumerate}
+
+
+% Fin del documento
+\end{document}

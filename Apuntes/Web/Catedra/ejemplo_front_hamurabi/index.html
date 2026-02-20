@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Hammurabi Demo Session</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Hammurabi Uso de Cookies y  JWT</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Login</h2>
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="ada@hammurabi.io" />
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="secret" />
+      <div class="row">
+        <button id="btnLogin" class="primary">Iniciar sesión</button>
+        <button id="btnLogout">Cerrar sesión</button>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <span id="pillSess" class="pill">Sesión: —</span>
+        <span id="pillJwt" class="pill">JWT: —</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Perfil vía Sesión (/me)</h2>
+      <div class="row">
+        <button id="btnMe">Consultar /me (cookie)</button>
+      </div>
+      <pre id="outMe">—</pre>
+    </section>
+
+    <section class="grid-1">
+      <h2>Juego actual vía JWT (/api/game/current)</h2>
+      <div class="row">
+        <button id="btnGame" class="primary">Consultar /api/game/current (JWT)</button>
+      </div>
+      <pre id="outGame">—</pre>
+    </section>
+
+    <section class="grid-1">
+      <h2>Respuesta desde /login</h2>
+      <pre id="outLogin">—</pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>front estático servido ddesde Koa.</p>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

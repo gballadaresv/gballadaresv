@@ -1,0 +1,100 @@
+ANCHO_GRILLA = 11 # NO EDITAR
+LARGO_GRILLA = 16 # NO EDITAR
+
+# Complete con los demás parámetros
+
+#  Ventana inicio
+MIN_CARACTERES = 5
+MAX_CARACTERES = 10
+NOMBRE_INVALIDO_VACIO = 'El nombre de usuario no puede estar vacio'
+NOMBRE_INVALIDO_ALFANUMERICO = 'El nombre de usuario debe ser alfanumerico'
+NOMBRE_INVALIDO_LARGO = ('El nombre de usuario debe contener entre '
+                         f'{MIN_CARACTERES} y {MAX_CARACTERES} '
+                         'caracteres incluyendo los extremos')
+
+# Paths
+PATH_MAPAS = 'mapas/'
+PATH_FONDO = 'sprites/Fondos/fondo_inicio.png'
+PATH_LOGO = 'sprites/Elementos/logo.png'
+PATH_ELEMENTOS = 'sprites/Elementos/'
+PATH_ENTIDADES = 'sprites/Personajes/'
+PATH_SONIDO_VICTORIA = 'sounds/stageClear.wav'
+PATH_SONIDO_DERROTA = 'sounds/gameOver.wav'
+
+NOMBRE_LUIGI = 'luigi'
+CANTIDAD_VIDAS = 4
+
+# Constructor
+MODO_CONSTRUCTOR = 'Modo constructor'
+POSICION_INVALIDA = 'La posición seleccionada es invalida'
+MAXIMO_SPRITES_ALCANZADO = 'No se pueden colocar más de este sprite'
+MAPA_BORDE = 'B'
+MAPA_LUIGI = 'L'
+MAPA_PARED = 'P'
+MAPA_FUEGO = 'F'
+MAPA_FANTASMA_H = 'H'
+MAPA_FANTASMA_V = 'V'
+MAPA_ESTRELLA = 'S'
+MAPA_ROCA = 'R'
+MAPA_VACIO = '-'
+REQUISITOS_MINIMOS_CONSTRUCTOR = (MAPA_LUIGI, MAPA_ESTRELLA)
+
+SPRITES_ELEMENTOS = {MAPA_BORDE: PATH_ELEMENTOS + 'bordermap.png',
+                     MAPA_FUEGO: PATH_ELEMENTOS + 'fire.png',
+                     MAPA_ESTRELLA: PATH_ELEMENTOS + 'osstar.png',
+                     MAPA_ROCA: PATH_ELEMENTOS + 'rock.png',
+                     MAPA_PARED: PATH_ELEMENTOS + 'wall.png'}
+SPRITES_ENTIDADES = {
+    MAPA_LUIGI: PATH_ENTIDADES + 'luigi_front.png',
+    MAPA_FANTASMA_H: PATH_ENTIDADES + 'white_ghost_rigth_1.png',
+    MAPA_FANTASMA_V: PATH_ENTIDADES + 'red_ghost_vertical_1.png',
+}
+FILTRO_TODOS = 'Todos'
+FILTROS = {FILTRO_TODOS: SPRITES_ENTIDADES | SPRITES_ELEMENTOS,
+           'Bloques': SPRITES_ELEMENTOS, 'Entidades': SPRITES_ENTIDADES}
+
+MAXIMO_LUIGI = 1
+MAXIMO_ESTRELLA = 1
+MAXIMO_FANTASMAS_VERTICAL = 2
+MAXIMO_FANTASMAS_HORIZONTAL = 3
+MAXIMO_ROCA = 2
+MAXIMO_PARED = 5
+MAXIMO_FUEGO = 3
+MAXIMO_ELEMENTOS = {
+    MAPA_LUIGI: MAXIMO_LUIGI,
+    MAPA_PARED: MAXIMO_PARED,
+    MAPA_FUEGO: MAXIMO_FUEGO,
+    MAPA_FANTASMA_H: MAXIMO_FANTASMAS_HORIZONTAL,
+    MAPA_FANTASMA_V: MAXIMO_FANTASMAS_VERTICAL,
+    MAPA_ESTRELLA: MAXIMO_ESTRELLA,
+    MAPA_ROCA: MAXIMO_ROCA
+}
+
+# Luigi
+LUIGI_QUIETO = 'front'
+
+# Fantasmas
+MIN_VELOCIDAD = 0.3
+MAX_VELOCIDAD = 0.8
+ARRIBA = 'up'
+ABAJO = 'down'
+DERECHA = 'rigth'
+IZQUIERDA = 'left'
+VERTICAL = 'vertical'
+DIRECCIONES_FANTASMA = {DERECHA: [1], IZQUIERDA: [-1], VERTICAL: [1, -1]}
+COLISION_FANTASMAS = (MAPA_PARED, MAPA_ROCA)
+FANTASMA_CONVERSION = {MAPA_FANTASMA_H: 'white', MAPA_FANTASMA_V: 'red'}
+NOMBRES_DIRECCIONES_FANTASMA = {
+    FANTASMA_CONVERSION[MAPA_FANTASMA_H]: [DERECHA, IZQUIERDA],
+    FANTASMA_CONVERSION[MAPA_FANTASMA_V]: [VERTICAL]}
+TIPO_HORIZONTAL = 'white'
+TIPO_VERTICAL = 'red'
+
+# Otros
+MULTIPLICADOR_PUNTAJE = 0.8
+VICTORIA = 'VICTORIA'
+DERROTA = 'DERROTA'
+TAMANO_GRILLA = 50
+ANCHO_MAPA = ANCHO_GRILLA - 2
+LARGO_MAPA = LARGO_GRILLA - 2
+TIEMPO_CUENTA_REGRESIVA = 110
